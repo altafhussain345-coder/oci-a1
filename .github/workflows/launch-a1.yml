@@ -49,7 +49,7 @@ jobs:
           EOF
           chmod 600 ~/.oci/key.pem ~/.oci/config
 
-      - name: Retry launching every 90 seconds
+      - name: Retry launching every 300 seconds
         env:
           OCI_TENANCY_OCID: ${{ secrets.OCI_TENANCY_OCID }}
           AVAILABILITY_DOMAIN: ${{ secrets.OCI_AVAILABILITY_DOMAIN }}
@@ -65,10 +65,10 @@ jobs:
           ALERT_PHONE: ${{ secrets.ALERT_PHONE }}
           # ---- tweak these if you like ----
           INSTANCE_NAME: a1-free
-          OCPUS: "2"                       # Always Free A1 = 2 OCPUs / 12 GB in total (June 2026 docs)
-          MEMORY_GB: "12"
-          BOOT_VOLUME_GB: "100"
-          RETRY_SECONDS: "90"
+          OCPUS: "4"                       # Always Free A1 = 2 OCPUs / 12 GB in total (June 2026 docs)
+          MEMORY_GB: "24"
+          BOOT_VOLUME_GB: "200"
+          RETRY_SECONDS: "300"
           RUN_MINUTES: "345"
           GATE_ON_CAPACITY_REPORT: "false"  # "true" = skip launch calls while the report says no capacity
         run: bash launch-a1.sh
