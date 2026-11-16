@@ -9,10 +9,10 @@ set -u
 COMPARTMENT_ID="${COMPARTMENT_ID:-$OCI_TENANCY_OCID}"  # root compartment by default
 INSTANCE_NAME="${INSTANCE_NAME:-a1-free}"
 SHAPE="VM.Standard.A1.Flex"
-OCPUS="${OCPUS:-2}"                      # Always Free A1 total is currently 2 OCPUs / 12 GB
-MEMORY_GB="${MEMORY_GB:-12}"
-BOOT_VOLUME_GB="${BOOT_VOLUME_GB:-100}"  # 200 GB of block storage is free in total
-RETRY_SECONDS="${RETRY_SECONDS:-90}"
+OCPUS="${OCPUS:-4}"                     
+MEMORY_GB="${MEMORY_GB:-24}"
+BOOT_VOLUME_GB="${BOOT_VOLUME_GB:-200}"  # 200 GB of block storage is free in total
+RETRY_SECONDS="${RETRY_SECONDS:-300}"
 RUN_MINUTES="${RUN_MINUTES:-345}"        # GitHub ends jobs at 6 h, so stop a bit earlier
 GATE_ON_CAPACITY_REPORT="${GATE_ON_CAPACITY_REPORT:-false}"
 
